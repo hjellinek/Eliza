@@ -377,7 +377,7 @@
   (RPAQQ DOCVARS (TRMLIS PCTLIS RUBOUT STOP))
   (RPAQQ TRMLIS ("." ! ?))
   (RPAQQ PCTLIS ("," ; "(" ")" :))
-  (RPAQQ RUBOUT #)
+  (RPAQQ RUBOUT \#)
 STOP
 
 ;;; ===================================================================================

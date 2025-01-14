@@ -348,7 +348,7 @@
 
 (RPLQQ
   (NLAMBDA RPLQ
-    (RPLACD (CAR RPLQ)
+    (SETPROPLIST (CAR RPLQ)
       (CDR RPLQ))))
 
 ;;; Eliza-19690731-DOCFNSp1-06of06
@@ -359,7 +359,7 @@
   (LAMBDA NIL
     (PROG (A)
           (SETQ A (GENSYM))
-          (RPLACD A (GETP (QUOTE NONE)
+          (SETPROPLIST A (GETP (QUOTE NONE)
               (QUOTE LASTRESORT)))
           (PUT (QUOTE NONE)
             (QUOTE MEM)
@@ -375,7 +375,7 @@
         ADVANCE RECONSTRUCT MEMORY BCONC RPLQQ SETNONE))
   (PRINT (QUOTE DOCVARS))
   (RPAQQ DOCVARS (TRMLIS PCTLIS RUBOUT STOP))
-  (RPAQQ TRMLIS ("." ! ?))
-  (RPAQQ PCTLIS ("," ; "(" ")" :))
-  (RPAQQ RUBOUT #)
+  (RPAQQ TRMLIS (\. \! \?))
+  (RPAQQ PCTLIS ("," \; "(" ")" \:))
+  (RPAQQ RUBOUT \#)
 STOP
