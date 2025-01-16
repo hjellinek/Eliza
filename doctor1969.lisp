@@ -126,10 +126,10 @@
                            (QUOTE PRIORITY)))))
                   (RETURN FLAG))
                 (T (RETURN (RPLACD SENTENCE KEYSTACK))))))
-          (TCONC (COND
+          (TCONC SENTENCE
+	   (COND
               ((GETP WORD (QUOTE TRANSLATION)))
-              (WORD))
-            SENTENCE)
+              (WORD)))
           (COND
             ((SETQ FLAG (GETP WORD (QUOTE MEMR)))
               (SETQ MEMSTACK (APPEND FLAG MEMSTACK))))
@@ -207,7 +207,7 @@
             ((NULL S)
               (GO RN))
             ((NUMBERP CD)
-              (TCONC S PARSELIST)
+              (TCONC PARSELIST S)
               (COND
                 ((SETQ S (NTH S CD))
                   (GO T3))
@@ -224,11 +224,11 @@
             ((TEST4 (CAR S)
                 (CDR CD)))
             (T (GO RN)))
-          (TCONC S PARSELIST)
+          (TCONC PARSELIST S)
       T3  (SETQ S (CDR S))
           (SETQ D (CDR D))
           (GO LP)
-      T0  (TCONC S PARSELIST)
+      T0  (TCONC PARSELIST S)
           (COND
             ((NULL (SETQ D (CDR D)))
               (SETQ PARSELIST (CAR PARSELIST))
@@ -291,7 +291,7 @@
                     (T (TERPRI)
                       (SETQ TPF T)))
                   (PRIN1 CR))))
-            (T (TCONC CR SENT)))
+            (T (TCONC SENT CR)))
       T3  (SETQ RULE (CDR RULE))
           (GO LP)
       T1  (SETQ V1 (CAR (SETQ CR (NTH PARSELIST CR))))
@@ -309,8 +309,7 @@
                 (T (TERPRI)
                   (SETQ TPF T)))
               (PRIN1 (CAR V1)))
-            (T (TCONC (CAR V1)
-                SENT)))
+            (T (TCONC SENT (CAR V1))))
           (SETQ V1 (CDR V1))
           (GO T2)
       )))
@@ -378,4 +377,3 @@
   (RPAQQ TRMLIS (\. \! \?))
   (RPAQQ PCTLIS ("," \; "(" ")" \:))
   (RPAQQ RUBOUT \#)
-STOP

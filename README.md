@@ -9,7 +9,7 @@ Interlisp version, Medley.
 
 I chose the 1969 papertape version from Jeff's ElizaGen repo.
 
-My self-imposed rules:
+## My self-imposed rules:
 
 - Keep the source code as close to the original as possible: no
   changes to the logic or data structures, minimal changes to the
@@ -26,3 +26,12 @@ My self-imposed rules:
   a few characters that have special meaning in Interlisp, but
   anticipate that Interlisp may treat TTY input differently.
 
+## How to run it
+
+In an Interlisp exec:
+
+````
+> (load "doctor1969.lisp" nil nil *package*)
+> (load "script1969.lisp" nil nil *package*)
+> (doctor)
+````
